@@ -26,9 +26,6 @@ app.use("/api/v1", require("./src/v1/routes"));
 //     console.log(error);
 // }
 
-const mongoose = require('mongoose');
-require('dotenv').config();
-
 async function start() {
   try {
     console.log('Connecting to DB...');
