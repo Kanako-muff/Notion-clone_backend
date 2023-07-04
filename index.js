@@ -8,9 +8,7 @@ const cors = require("cors"); //⬅︎ about CORS policy
 // Giving access to localhost:3000 of "client"
 // - An err would appear without it cause of the difference of the
 // - port number between "server" and "client". 
-app.use(cors({
-    origin: "http://localhost:3000",
-}))
+app.use(cors());
 
 // Telling "Recognize it as JSON objects!!!!"
 app.use(express.json());
