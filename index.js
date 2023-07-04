@@ -26,12 +26,26 @@ app.use("/api/v1", require("./src/v1/routes"));
 //     console.log(error);
 // }
 
-try {
+const mongoose = require('mongoose');
+require('dotenv').config();
+
+async function start() {
+  try {
+    console.log('Connecting to DB...');
     await mongoose.connect(process.env.MONGODB_URL);
-    console.log("Connecting to DB...");
-} catch (error) {
-    console.log(error);
+    console.log('Connected to DB');
+
+    console.log('Starting local server...');
+    // ローカルサーバーの起動などのコードを記述
+
+    console.log('Server started');
+  } catch (error) {
+    console.error('An error occurred:', error);
+  }
 }
+
+start();
+
 
 
 //Only on the terminal
