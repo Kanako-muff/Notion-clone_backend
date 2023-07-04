@@ -19,12 +19,20 @@ app.use(express.json());
 app.use("/api/v1", require("./src/v1/routes"));
 
 //Connect to DB
+// try {
+//     mongoose.connect(process.env.MONGODB_URL);
+//     console.log("Connecting to DB...");
+// } catch (error) {
+//     console.log(error);
+// }
+
 try {
-    mongoose.connect(process.env.MONGODB_URL);
+    await mongoose.connect(process.env.MONGODB_URL);
     console.log("Connecting to DB...");
 } catch (error) {
     console.log(error);
 }
+
 
 //Only on the terminal
 app.listen(PORT, ()=>{
